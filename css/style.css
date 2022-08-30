@@ -1,0 +1,182 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #333;
+}
+
+.main {
+  max-width: 100vw;
+  height: 100vh;
+  background-color: #333;
+}
+
+.main__elements {
+  padding: 40px 80px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+
+/*CHECKBOX MARKUP START*/
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+  background-color: #e5e5e5;
+  padding: 21px 29px 29px 30px;
+  border-radius: 10px;
+}
+
+.checkbox__title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+
+.checkbox input {
+  margin-right: 9px;
+}
+
+.checkbox label {
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+}
+
+.checkbox label:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+#Dino, #Bear, #Roe, #Fox, #Wolf, #Deer {
+  display: none;
+}
+
+#Dino + span, #Bear + span, #Roe + span, #Fox + span, #Wolf + span, #Deer + span {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #CCB26E;
+  border-radius: 3px;
+  text-align: center;
+}
+
+#Dino + span::before, #Bear + span::before, #Roe + span::before, #Fox + span::before, #Wolf + span::before, #Deer + span::before {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 8px;
+  transform: rotate(130deg);
+  background-color: #CCB26E;
+  top: 6px;
+  right: 0;
+  bottom: 0;
+  left: 4px;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+#Dino + span::after, #Bear + span::after, #Roe + span::after, #Fox + span::after, #Wolf + span::after, #Deer + span::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 4px;
+  transform: rotate(45deg);
+  background-color: #CCB26E;
+  top: 7px;
+  right: 0;
+  bottom: 0;
+  left: 2px;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+#Dino:checked + span::before, #Bear:checked + span::before, #Roe:checked + span::before, #Fox:checked + span::before, #Wolf:checked + span::before, #Deer:checked + span::before {
+  opacity: 1;
+}
+
+#Dino:checked + span::after, #Bear:checked + span::after, #Roe:checked + span::after, #Fox:checked + span::after, #Wolf:checked + span::after, #Deer:checked + span::after {
+  opacity: 1;
+}
+/*CHECKBOX MARKUP END*/
+
+
+/* SELECT MARKUP START */
+.choices__inner {
+  min-width: 210px;
+  border-radius: 10px 10px 0px 0px !important;
+  font-size: 10px;
+}
+
+.is-open .choices__inner {
+  min-width: 210px;
+  border-radius: 10px 10px 0px 0px !important;
+  font-size: 10px;
+}
+
+.choices__list--dropdown .choices__item--selectable::after, .choices__list[aria-expanded] .choices__item--selectable::after {
+  display: none;
+}
+
+.choices__item {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.choices, .choices.is-open {
+  border-radius: 10px;
+}
+
+.choices__placeholder {
+  opacity: 1;
+}
+
+option {
+  font-size: 10px;
+}
+
+select {
+  border-radius: 10px !important;
+}
+
+.is-open, .is-focused, .is-active {
+  border-radius: 0px 0px 10px 10px !important;
+}
+
+.choices__list--dropdown.is-active .choices__list .choices__item:first-child {
+  display: none;
+}
+/* SELECT MARKUP END */
+
+
+/* MAP MARKUP START */
+.map {
+
+}
+
+.scroll {
+
+}
+
+.form {
+
+}
+
+.tooltip {
+  
+}
