@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/fonts/stylesheet.css">
-  <link rel="stylesheet" href="/css/choices.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="/script/choices.js"></script>
-  <script src="/script/choices.min.js"></script>
+  <link rel="stylesheet" href="/assets/fonts/stylesheet.css">
+  <link rel="stylesheet" href="/assets/css/choices.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <title>Document</title>
 </head>
 <body>
@@ -56,9 +54,8 @@
         </select>
       </div>
       
-      <div class="map">
-        3
-      </div>
+      <div id="map" style="width: 600px; height: 400px"></div>
+      
       <div class="scroll">
         4
       </div>
@@ -70,5 +67,32 @@
       </div>
     </div>
   </main>
+  <script src="/script/choices.js"></script>
+  <script src="/script/choices.min.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+  <script type="text/javascript">
+    ymaps.ready(init);
+    function init(){
+      var myMap = new ymaps.Map('map', {
+            center: [55.755773, 37.617761],
+            zoom: 9
+        }, {
+            searchControlProvider: 'yandex#search'
+        }),
+        myPlacemark = new ymaps.Placemark(myMap.getCenter());
+
+    myMap.geoObjects.add(myPlacemark);
+
+    myPlacemark.events
+        .add('mouseenter', function (e) {
+            // Ссылку на объект, вызвавший событие,
+            // можно получить из поля 'target'.
+            e.get('target').options.set('preset', 'islands#greenIcon');
+        })
+        .add('mouseleave', function (e) {
+            e.get('target').options.unset('preset');
+        });
+    }
+</script>
 </body>
 </html>
