@@ -165,12 +165,25 @@ select {
 
 
 /* MAP MARKUP START */
-.map {
-
+[class*="ground-pane"] {
+  filter: grayscale(1);
 }
 
 .scroll {
+  width: 400px;
+  height: 310px;
+  background-color: #fff;
+  padding: 20px 30px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
 
+}
+
+.simplebar-content-wrapper {
+  overflow: auto;
 }
 
 .form {
@@ -178,5 +191,50 @@ select {
 }
 
 .tooltip {
-  
+  position: relative;
+  background-color: white;
+  width: 375px;
+  height: 160px;
+  padding: 20px 78px 20px 30px;
+}
+
+.marker {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  transform: translateY(3px);
+}
+
+.marker:hover path {
+  fill: #CCB26E;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.popup {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  color: #fff;
+  margin-top: 10px;
+  padding: 15px;
+  background: #333;
+  opacity: 0;
+  transition: .3s opacity ease-in-out;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+
+}
+
+.marker:hover + .popup {
+  opacity: 1;
 }
